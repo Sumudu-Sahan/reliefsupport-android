@@ -93,7 +93,7 @@ public class ViewHelpersCountChartActivity extends Activity{
                     break;
 
                 case "2" :
-                    progressDialog = ProgressDialog.show(context, "දත්ත ලැබෙමින් පවතී", "මඳක් ඉවසන්න");
+                    progressDialog = ProgressDialog.show(context, "දත්ත ලැබෙමින් පවතී", "මදක් රැදිසිටින්න");
                     break;
 
                 case "3" :

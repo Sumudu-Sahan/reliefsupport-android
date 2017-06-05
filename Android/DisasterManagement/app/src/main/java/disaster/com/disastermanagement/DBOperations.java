@@ -399,14 +399,14 @@ public class DBOperations {
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(15000);
                 conn.setConnectTimeout(15000);
-                conn.setRequestMethod("POST");
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
+                conn.setRequestMethod("GET");
+                //conn.setDoInput(true);
+                //conn.setDoOutput(true);
                 try {
                     conn.connect();
                     is = conn.getInputStream();
                     try {
-                        BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(is, "utf-8"), 8);
                         StringBuilder sb = new StringBuilder();
 
                         while ((line = reader.readLine()) != null) {
@@ -458,6 +458,9 @@ public class DBOperations {
                                         case "Web" : // site
                                             needIdentifierListAsString += "Web#";
                                             break;
+
+                                        default :
+                                            needIdentifierListAsString += "Web#";
                                     }
                                 }
                             }
@@ -524,14 +527,14 @@ public class DBOperations {
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(15000);
                 conn.setConnectTimeout(15000);
-                conn.setRequestMethod("POST");
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
+                conn.setRequestMethod("GET");
+                //conn.setDoInput(true);
+                //conn.setDoOutput(true);
                 try {
                     conn.connect();
                     is = conn.getInputStream();
                     try {
-                        BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(is, "utf-8"), 8);
                         StringBuilder sb = new StringBuilder();
 
                         while ((line = reader.readLine()) != null) {
@@ -583,13 +586,11 @@ public class DBOperations {
                                         case "Web" : // site
                                             donationIdentifierListAsString += "Web#";
                                             break;
+
+                                        default:
+                                            donationIdentifierListAsString += "Web#";
                                     }
                                 }
-
-                                switch(jObject.getString("identifier").toLowerCase()){
-
-                                }
-
                             }
                             return new String[][]{
                                     donationIDListAsString.split("#"),
@@ -632,7 +633,7 @@ public class DBOperations {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
             try {
-                URL url = new URL(data.getSERVER_URL_PATH() + "addNewDonation.php");
+                URL url = new URL(data.getGET_ALL_DONATIONS());
 
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(15000);
@@ -648,7 +649,7 @@ public class DBOperations {
                         .appendQueryParameter("city", city)
                         .appendQueryParameter("donation", donation)
                         .appendQueryParameter("information", information)
-                        .appendQueryParameter("identifier", "Android");
+                        .appendQueryParameter("source", "fbbot");
 
                 String query = builder.build().getEncodedQuery();
 
@@ -724,7 +725,7 @@ public class DBOperations {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
             try {
-                URL url = new URL(data.getSERVER_URL_PATH() + "addNewNeed.php");
+                URL url = new URL(data.getGET_ALL_NEEDS());
 
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(15000);
@@ -740,7 +741,7 @@ public class DBOperations {
                         .appendQueryParameter("city", city)
                         .appendQueryParameter("needs", needs)
                         .appendQueryParameter("heads", heads)
-                        .appendQueryParameter("identifier", "Android");
+                        .appendQueryParameter("source", "fbbot");
 
                 String query = builder.build().getEncodedQuery();
 

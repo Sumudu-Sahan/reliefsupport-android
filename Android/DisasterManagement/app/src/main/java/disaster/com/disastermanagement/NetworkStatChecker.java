@@ -8,6 +8,8 @@ import android.widget.Toast;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import javax.net.ssl.HttpsURLConnection;
+
 /**
  * Created by Sumudu on 3/30/2016.
  */
@@ -21,7 +23,7 @@ public class NetworkStatChecker {
                 StrictMode.setThreadPolicy(policy);
 
                 URL url = new URL(data.getSERVER_URL_PATH().trim() + "ping.php");
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
                 conn.setReadTimeout(15000);
                 conn.setConnectTimeout(15000);
                 conn.setRequestMethod("POST");
@@ -31,7 +33,7 @@ public class NetworkStatChecker {
 
                 System.out.println("response Code: " + conn.getResponseCode());
 
-                if (conn.getResponseCode() == HttpURLConnection.HTTP_OK){
+                if (conn.getResponseCode() == HttpsURLConnection.HTTP_OK){
                    return true;
                 }
                 else{

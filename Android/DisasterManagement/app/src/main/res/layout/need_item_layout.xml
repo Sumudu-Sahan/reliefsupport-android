@@ -21,14 +21,30 @@
             android:background="@drawable/border_photo_view"
             android:layout_height="wrap_content">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:textColor="#FFFFFF"
-                android:textSize="@dimen/text_size_2"
-                android:textStyle="bold"
-                android:text="text"
-                android:id="@+id/textDisplay"
-                android:layout_height="wrap_content" />
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/text_size_2"
+                    android:textStyle="bold"
+                    android:text="text"
+                    android:id="@+id/textDisplay"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textColor="#FF8000"
+                    android:textSize="@dimen/text_size_2"
+                    android:text="city"
+                    android:gravity="right"
+                    android:id="@+id/cityDisplay"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -52,14 +68,6 @@
                 android:textSize="@dimen/text_size_6"
                 android:text="address"
                 android:id="@+id/addressDisplay"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:textColor="#FFFFFF"
-                android:textSize="@dimen/text_size_6"
-                android:text="city"
-                android:id="@+id/cityDisplay"
                 android:layout_height="wrap_content" />
 
             <TextView

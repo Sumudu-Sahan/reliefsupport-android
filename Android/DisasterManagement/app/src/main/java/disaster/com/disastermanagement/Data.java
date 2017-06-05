@@ -12,8 +12,8 @@ public class Data {
     private String SINHALA = "2";
     private String TAMIL = "3";
 
-    private String GET_ALL_DONATIONS = "http://reliefsupports.org/api/v1/entry/donations";
-    private String GET_ALL_NEEDS = "http://reliefsupports.org/api/v1/entry/needs";
+    private String GET_ALL_DONATIONS = "http://stag.reliefsupports.org/api/v1/entry/donations";
+    private String GET_ALL_NEEDS = "http://stag.reliefsupports.org/api/v1/entry/needs";
 
     private String SERVER_URL_PATH = "https://roseless-seat.000webhostapp.com/reliefsupport/php/"; // change the URL to php file location
 

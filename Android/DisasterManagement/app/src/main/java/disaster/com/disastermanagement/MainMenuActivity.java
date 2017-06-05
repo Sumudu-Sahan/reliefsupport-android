@@ -223,7 +223,7 @@ public class MainMenuActivity extends Activity {
                         }
 
                         else{
-                            new AddNewHelperRecord(name, telephone,address, city, donation, info).execute();
+                            new AddNewHelperRecord(name, telephone,address, city, donation, info, alertDialog).execute();
                         }
                     }
                 });
@@ -355,7 +355,7 @@ public class MainMenuActivity extends Activity {
                         }
 
                         else{
-                            new AddNewRequirementRecord(name, telephone,address, city, requirement, count).execute();
+                            new AddNewRequirementRecord(name, telephone,address, city, requirement, count, alertDialog).execute();
                         }
                     }
                 });
@@ -577,14 +577,16 @@ public class MainMenuActivity extends Activity {
         ProgressDialog progressDialog;
 
         String name, telephone, address, city, donation, information;
+        Dialog alertDialog;
 
-        public AddNewHelperRecord(String name, String telephone, String address, String city, String donation, String information){
+        public AddNewHelperRecord(String name, String telephone, String address, String city, String donation, String information, Dialog alertDialog){
             this.name = name;
             this.telephone = telephone;
             this.address = address;
             this.city = city;
             this.donation = donation;
             this.information = information;
+            this.alertDialog = alertDialog;
         }
 
         @Override
@@ -595,7 +597,7 @@ public class MainMenuActivity extends Activity {
                     break;
 
                 case "2" :
-                    progressDialog = ProgressDialog.show(context, "සඳහන් කරමින් පවතී", "මඳක් ඉවසන්න");
+                    progressDialog = ProgressDialog.show(context, "ඔබේ තොරතුරු ලබා දෙමින් පවති", "මදක් රැදිසිටින්න");
                     break;
 
                 case "3" :
@@ -635,6 +637,7 @@ public class MainMenuActivity extends Activity {
                 }
                 try{
                     progressDialog.dismiss();
+                    alertDialog.dismiss();
                 }
                 catch(Exception ignored){}
             }
@@ -678,14 +681,16 @@ public class MainMenuActivity extends Activity {
         ProgressDialog progressDialog;
 
         String name, telephone, address, city, need, headCount;
+        Dialog alertDialog;
 
-        public AddNewRequirementRecord(String name, String telephone, String address, String city, String need, String headCount){
+        public AddNewRequirementRecord(String name, String telephone, String address, String city, String need, String headCount, Dialog alertDialog){
             this.name = name;
             this.telephone = telephone;
             this.address = address;
             this.city = city;
             this.need = need;
             this.headCount = headCount;
+            this.alertDialog = alertDialog;
         }
 
         @Override
@@ -696,7 +701,7 @@ public class MainMenuActivity extends Activity {
                     break;
 
                 case "2" :
-                    progressDialog = ProgressDialog.show(context, "සඳහන් කරමින් පවතී", "මඳක් ඉවසන්න");
+                    progressDialog = ProgressDialog.show(context, "ඔබේ තොරතුරු ලබා දෙමින් පවති", "මදක් රැදිසිටින්න");
                     break;
 
                 case "3" :
@@ -736,6 +741,7 @@ public class MainMenuActivity extends Activity {
                 }
                 try{
                     progressDialog.dismiss();
+                    alertDialog.dismiss();
                 }
                 catch(Exception ignored){}
             }
