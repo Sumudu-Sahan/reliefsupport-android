@@ -102,12 +102,12 @@ public class CustomAllHelpersAdapter extends BaseAdapter {
             }
         });
 
-        userNameDisplay.setText(donationNameList[position]);
+        userNameDisplay.setText("Name : " + donationNameList[position]);
         telNoDisplay.setText(donationTelephoneList[position]);
-        addressDisplay.setText(donationAddressList[position]);
-        cityDisplay.setText(donationCityList[position]);
+        addressDisplay.setText("Address : " + donationAddressList[position]);
+        cityDisplay.setText("City : " + donationCityList[position]);
         textDisplay.setText(donationTextList[position]);
-        infoDisplay.setText(donationInformationList[position]);
+        infoDisplay.setText("More Info : " + donationInformationList[position]);
         dateDisplay.setText(donationUpdatedAtList[position]);
         identifierDisplay.setText(donationIdentifierList[position]);
         return gvContent;

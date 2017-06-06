@@ -102,12 +102,12 @@ public class CustomAllRequirementsAdapter extends BaseAdapter {
             }
         });
 
-        userNameDisplay.setText(needNameList[position]);
+        userNameDisplay.setText("Name : " + needNameList[position]);
         telNoDisplay.setText(needTelephoneList[position]);
-        addressDisplay.setText(needAddressList[position]);
-        cityDisplay.setText(needCityList[position]);
+        addressDisplay.setText("Address : " + needAddressList[position]);
+        cityDisplay.setText("City : " + needCityList[position]);
         textDisplay.setText(needTextList[position]);
-        countDisplay.setText(needHeadCountList[position]);
+        countDisplay.setText("Head count : " + needHeadCountList[position]);
         dateDisplay.setText(needUpdatedAtList[position]);
         identifierDisplay.setText(needIdentifierList[position]);
         return gvContent;
